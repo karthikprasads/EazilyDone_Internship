@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <application
         android:allowBackup="true"
@@ -12,11 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EazilyDone"
         tools:targetApi="31">
-
+        <activity
+            android:name=".chatBotActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            tools:ignore="DiscouragedApi"/>
         <activity
             android:name=".SplashActivity"
-            android:screenOrientation="landscape"
             android:exported="true"
+            android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,38 +31,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".IntroActivity"
-            android:screenOrientation="landscape"
             android:exported="false"
-            tools:ignore="DiscouragedApi">
-        </activity>
-
+            android:screenOrientation="landscape"
+            tools:ignore="DiscouragedApi"/>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="landscape"
             android:exported="false"
-            tools:ignore="DiscouragedApi">
-        </activity>
-
+            android:screenOrientation="landscape"
+            tools:ignore="DiscouragedApi"/>
         <activity
             android:name=".SecondActivity"
-            android:screenOrientation="landscape"
             android:exported="false"
-            tools:ignore="DiscouragedApi">
-        </activity>
-
+            android:screenOrientation="landscape"
+            tools:ignore="DiscouragedApi"/>
         <activity
             android:name=".ThirdActivity"
-            android:screenOrientation="landscape"
             android:exported="false"
-            tools:ignore="DiscouragedApi">
-        </activity>
-
-
-
-
+            android:screenOrientation="landscape"
+            tools:ignore="DiscouragedApi"/>
     </application>
 
 </manifest>
