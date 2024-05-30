@@ -4,8 +4,6 @@ package com.example.eazilydone;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +12,6 @@ public class IntroActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private TextView loadingText;
-    private Button nextButton;
     private String[] loadingMessages = {
             "Builds are being kept ready...",
             "Roads are being built...",
@@ -28,7 +25,6 @@ public class IntroActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.loading_bar);
         loadingText = findViewById(R.id.loading_text);
-        nextButton = findViewById(R.id.next_button);
 
         // Simulate loading process
         simulateLoading();
@@ -54,12 +50,9 @@ public class IntroActivity extends AppCompatActivity {
                     handler.postDelayed(this, 30); // Adjust speed as necessary for a total duration of 2-3 seconds
                 } else {
                     loadingText.setText("Loading complete!");
-                    nextButton.setVisibility(View.VISIBLE);
-                    nextButton.setOnClickListener(v -> {
-                        Intent intent = new Intent(IntroActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    });
+                    Intent intent = new Intent(IntroActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
         };

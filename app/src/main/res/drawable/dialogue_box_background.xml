@@ -1,0 +1,16 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#000000"/>
+            <corners android:radius="16dp"/>
+            <stroke android:width="4dp" android:color="#000000"/>
+        </shape>
+    </item>
+    <item>
+        <bitmap
+            android:src="@drawable/dialogue_box_image"
+            android:gravity="center"
+            android:tileMode="disabled"
+            android:scaleType="fitXY"/>
+    </item>
+</layer-list>

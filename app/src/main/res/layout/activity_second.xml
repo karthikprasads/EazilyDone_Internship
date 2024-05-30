@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/grass">
+
+    <!-- Building 1 -->
+    <ImageView
+        android:id="@+id/building1"
+        android:layout_width="134dp"
+        android:layout_height="138dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/bank2" />
+
+    <!-- Building 2 -->
+    <ImageView
+        android:id="@+id/building2"
+        android:layout_width="134dp"
+        android:layout_height="138dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/building" />
+
+    <!-- Building 3 -->
+    <ImageView
+        android:id="@+id/building3"
+        android:layout_width="134dp"
+        android:layout_height="138dp"
+        android:src="@drawable/building2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true" />
+
+    <!-- Building 4 -->
+    <ImageView
+        android:id="@+id/building4"
+        android:layout_width="134dp"
+        android:layout_height="138dp"
+        android:src="@drawable/bank1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true" />
+
+    <!-- Bank Button -->
+    <Button
+        android:id="@+id/Bankbutton"
+        android:layout_width="74dp"
+        android:layout_height="48dp"
+        android:layout_alignStart="@id/building1"
+        android:layout_alignTop="@id/building1"
+        android:layout_alignEnd="@id/building1"
+        android:layout_alignBottom="@id/building1"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="51dp"
+        android:background="#FFFFFF"
+        android:text="Bank"
+        android:textColor="#757575" />
+</RelativeLayout>

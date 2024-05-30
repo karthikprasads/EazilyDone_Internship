@@ -1,91 +1,46 @@
 package com.example.eazilydone;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import androidx.appcompat.app.AppCompatActivity;
+import com.bumptech.glide.Glide;
 
-public class RouteMapView extends View {
-    private Paint roadPaint;
-    private Paint buildingPaint;
-    private Paint treePaint;
-    private Paint playerPaint;
-    private Path roadPath;
-    private float playerX = 100;
-    private float playerY = 100;
+public class SecondActivity extends AppCompatActivity {
 
-    public RouteMapView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
-    }
-
-    private void init() {
-        roadPaint = new Paint();
-        roadPaint.setColor(Color.GRAY);
-        roadPaint.setStyle(Paint.Style.STROKE);
-        roadPaint.setStrokeWidth(10);
-
-        buildingPaint = new Paint();
-        buildingPaint.setColor(Color.DKGRAY);
-        buildingPaint.setStyle(Paint.Style.FILL);
-
-        treePaint = new Paint();
-        treePaint.setColor(Color.GREEN);
-        treePaint.setStyle(Paint.Style.FILL);
-
-        playerPaint = new Paint();
-        playerPaint.setColor(Color.BLUE);
-        playerPaint.setStyle(Paint.Style.FILL);
-
-        roadPath = new Path();
-        roadPath.moveTo(100, 100);
-        roadPath.lineTo(300, 100);
-        roadPath.lineTo(300, 300);
-        roadPath.lineTo(500, 300);
-        roadPath.lineTo(500, 500);
-    }
+    private static final int INTRO_DURATION = 000; // 2 seconds
 
     @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        // Draw the road
-        canvas.drawPath(roadPath, roadPaint);
+        // Set the introductory layout
+       // setContentView(R.layout.activity_cloud);
 
-        // Draw buildings
-        canvas.drawRect(50, 50, 150, 150, buildingPaint);
-        canvas.drawRect(400, 400, 550, 550, buildingPaint);
+        // Load the GIF into the ImageView using Glide
+      //  ImageView introImageView = findViewById(R.id.introImageView);
+     //   Glide.with(this).asGif().load(R.drawable.cloud).into(introImageView);
 
-        // Draw trees
-        canvas.drawCircle(200, 200, 30, treePaint);
-        canvas.drawCircle(600, 600, 30, treePaint);
+        // Use a Handler to switch to the main layout after the specified duration
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Set the main layout after the delay
+                setContentView(R.layout.activity_second);
 
-        // Draw the player
-        canvas.drawCircle(playerX, playerY, 20, playerPaint);
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        float touchX = event.getX();
-        float touchY = event.getY();
-
-        if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
-            if (isOnRoad(touchX, touchY)) {
-                playerX = touchX;
-                playerY = touchY;
-                invalidate(); // Redraw the view
+                // Set up the button click listener after setting the main layout
+                Button bankButton = findViewById(R.id.Bankbutton);
+                bankButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+                        startActivity(intent);
+                    }
+                });
             }
-            return true;
-        }
-        return super.onTouchEvent(event);
-    }
-
-    private boolean isOnRoad(float x, float y) {
-        // Simple check for demonstration purposes
-        return roadPath.contains(x, y);
+        }, INTRO_DURATION);
     }
 }
