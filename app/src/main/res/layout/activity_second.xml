@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
@@ -10,20 +11,20 @@
         android:id="@+id/building1"
         android:layout_width="134dp"
         android:layout_height="138dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="6dp"
-        android:src="@drawable/bank2" />
+        android:src="@drawable/bank2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Building 2 -->
     <ImageView
         android:id="@+id/building2"
         android:layout_width="134dp"
         android:layout_height="138dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/building" />
+        android:src="@drawable/building"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Building 3 -->
     <ImageView
@@ -31,32 +32,61 @@
         android:layout_width="134dp"
         android:layout_height="138dp"
         android:src="@drawable/building2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <!-- Building 4 -->
     <ImageView
         android:id="@+id/building4"
         android:layout_width="134dp"
         android:layout_height="138dp"
-        android:src="@drawable/bank1"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true" />
+        android:src="@drawable/building2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <!-- Bank Button -->
     <Button
         android:id="@+id/Bankbutton"
         android:layout_width="74dp"
         android:layout_height="48dp"
-        android:layout_alignStart="@id/building1"
-        android:layout_alignTop="@id/building1"
-        android:layout_alignEnd="@id/building1"
-        android:layout_alignBottom="@id/building1"
         android:layout_marginStart="28dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="51dp"
         android:background="#FFFFFF"
         android:text="Bank"
-        android:textColor="#757575" />
-</RelativeLayout>
+        android:textColor="#757575"
+        app:layout_constraintStart_toStartOf="@id/building1"
+        app:layout_constraintTop_toTopOf="@id/building1"
+        app:layout_constraintEnd_toEndOf="@id/building1"
+        app:layout_constraintBottom_toBottomOf="@id/building1" />
+
+    <!-- Horizontal Road -->
+    <ImageView
+        android:id="@+id/Horizontalroad2"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/horizontalroad"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Vertical Road -->
+    <ImageView
+        android:id="@+id/VerticalRoad"
+        android:layout_height="0dp"
+        android:layout_width="74dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/roadhori"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
