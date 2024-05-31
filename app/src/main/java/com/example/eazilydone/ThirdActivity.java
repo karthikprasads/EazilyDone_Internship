@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.eazilydone.chatbot.chatBotActivity;
+
 public class ThirdActivity extends AppCompatActivity {
 
     @Override

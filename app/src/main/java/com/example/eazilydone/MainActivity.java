@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.eazilydone.data.playerData;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView dialogueText;
@@ -33,10 +35,14 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        playerData pd = playerData.getInstance(getApplicationContext());
+        if(pd.getfirstDialogue()){
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            startActivity(intent);
+            finish();
+        }
         dialogueText = findViewById(R.id.dialogue_text);
         nextButton = findViewById(R.id.next_button);
-
         // Handle "Next" button click
         nextButton.setOnClickListener(v -> {
             if (dialogueIndex < dialogues.length - 1) {
@@ -44,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
                 dialogueText.setText(dialogues[dialogueIndex]);
             } else {
                 // Start the next activity or perform your desired action when dialogues are done
+                pd.setfirstDialogue(true);
+                pd.saveData(this);
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
                 finish();

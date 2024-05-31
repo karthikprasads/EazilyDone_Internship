@@ -16,7 +16,7 @@
         android:theme="@style/Theme.EazilyDone"
         tools:targetApi="31">
         <activity
-            android:name=".chatBotActivity"
+            android:name=".chatbot.chatBotActivity"
             android:exported="true"
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>

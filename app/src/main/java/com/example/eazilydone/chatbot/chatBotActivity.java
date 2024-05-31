@@ -1,4 +1,4 @@
-package com.example.eazilydone;
+package com.example.eazilydone.chatbot;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,13 +19,12 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.eazilydone.R;
 import com.example.eazilydone.backend.APIClient;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
