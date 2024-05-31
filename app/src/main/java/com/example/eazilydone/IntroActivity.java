@@ -1,6 +1,7 @@
 // IntroActivity.java
 package com.example.eazilydone;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +19,8 @@ public class IntroActivity extends AppCompatActivity {
             "Preparing final touches..."
     };
 
+    private TextView introText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +28,8 @@ public class IntroActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.loading_bar);
         loadingText = findViewById(R.id.loading_text);
+        introText = findViewById(R.id.intro_text);
+        animateText("Welcome to Eazily Done!");
 
         // Simulate loading process
         simulateLoading();
@@ -34,20 +39,25 @@ public class IntroActivity extends AppCompatActivity {
         final Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             int progress = 0;
-            int messageIndex = 0;
+            int totalSteps = 100; // total steps for ProgressBar
+            long durationInMillis = 3000; // duration in milliseconds
+            long delayBetweenSteps = durationInMillis / totalSteps; // calculate delay between each step
 
             @Override
             public void run() {
-                if (progress < 100) {
+                if (progress < totalSteps) {
                     progress++;
                     progressBar.setProgress(progress);
 
-                    if (progress % 33 == 0 && messageIndex < loadingMessages.length) {
-                        loadingText.setText(loadingMessages[messageIndex]);
-                        messageIndex++;
+                    // Update loading text if needed
+                    if (progress % (totalSteps / loadingMessages.length) == 0) {
+                        int messageIndex = progress / (totalSteps / loadingMessages.length);
+                        if (messageIndex < loadingMessages.length) {
+                            loadingText.setText(loadingMessages[messageIndex]);
+                        }
                     }
 
-                    handler.postDelayed(this, 30); // Adjust speed as necessary for a total duration of 2-3 seconds
+                    handler.postDelayed(this, delayBetweenSteps);
                 } else {
                     loadingText.setText("Loading complete!");
                     Intent intent = new Intent(IntroActivity.this, MainActivity.class);
@@ -58,4 +68,18 @@ public class IntroActivity extends AppCompatActivity {
         };
         handler.post(runnable);
     }
+
+
+    private void animateText(final String text) {
+        ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f);
+        animator.setDuration(3000); // Duration of the animation in milliseconds
+        animator.addUpdateListener(animation -> {
+            float animatedValue = (float) animation.getAnimatedValue();
+            int length = (int) (text.length() * animatedValue);
+            introText.setText(text.substring(0, length));
+        });
+        animator.start();
+    }
+
+
 }

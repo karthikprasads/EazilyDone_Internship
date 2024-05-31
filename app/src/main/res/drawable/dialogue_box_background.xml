@@ -6,11 +6,5 @@
             <stroke android:width="4dp" android:color="#000000"/>
         </shape>
     </item>
-    <item>
-        <bitmap
-            android:src="@drawable/dialogue_box_image"
-            android:gravity="center"
-            android:tileMode="disabled"
-            android:scaleType="fitXY"/>
-    </item>
+
 </layer-list>

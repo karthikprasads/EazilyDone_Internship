@@ -2,7 +2,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/red"
+    android:background="@drawable/ui4"
     android:padding="16dp">
 
     <!-- Guide Image -->
@@ -33,7 +33,7 @@
         android:layout_width="503dp"
         android:layout_height="139dp"
         android:layout_centerInParent="true"
-        android:background="@drawable/dialogue_box_background"
+        android:background="@color/random"
         android:padding="16dp">
 
         <TextView

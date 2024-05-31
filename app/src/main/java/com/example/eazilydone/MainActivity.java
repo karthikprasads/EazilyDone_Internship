@@ -36,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         playerData pd = playerData.getInstance(getApplicationContext());
-        if(pd.getfirstDialogue()){
-            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-            startActivity(intent);
-            finish();
-        }
+//        if(pd.getfirstDialogue()){
+//            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
         dialogueText = findViewById(R.id.dialogue_text);
         nextButton = findViewById(R.id.next_button);
         // Handle "Next" button click
@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
                 dialogueText.setText(dialogues[dialogueIndex]);
             } else {
                 // Start the next activity or perform your desired action when dialogues are done
-                pd.setfirstDialogue(true);
-                pd.saveData(this);
+                //pd.setfirstDialogue(true);
+                //pd.saveData(this);
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
                 finish();
