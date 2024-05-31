@@ -1,4 +1,4 @@
-package com.example.eazilydone;
+package com.example.eazilydone.chatbot;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.eazilydone.R;
 
 import java.util.List;
 

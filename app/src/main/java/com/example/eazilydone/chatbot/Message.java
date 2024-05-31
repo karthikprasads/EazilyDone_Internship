@@ -1,4 +1,4 @@
-package com.example.eazilydone;
+package com.example.eazilydone.chatbot;
 
 public class Message {
     public static final int TYPE_BOT = 0;
