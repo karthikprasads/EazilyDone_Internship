@@ -1,92 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/mainLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@drawable/grass">
+    android:layout_height="match_parent">
 
-    <!-- Building 1 -->
-    <ImageView
-        android:id="@+id/building1"
-        android:layout_width="134dp"
-        android:layout_height="138dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="6dp"
-        android:src="@drawable/bank2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/secondLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="@drawable/ui6">
 
-    <!-- Building 2 -->
-    <ImageView
-        android:id="@+id/building2"
-        android:layout_width="134dp"
-        android:layout_height="138dp"
-        android:src="@drawable/building"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/grass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="ContentDescription" />
 
-    <!-- Building 3 -->
-    <ImageView
-        android:id="@+id/building3"
-        android:layout_width="134dp"
-        android:layout_height="138dp"
-        android:src="@drawable/building2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        <ImageView
+            android:id="@+id/person"
+            android:layout_width="34dp"
+            android:layout_height="37dp"
+            android:src="@drawable/rightview"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.501" />
 
-    <!-- Building 4 -->
-    <ImageView
-        android:id="@+id/building4"
-        android:layout_width="134dp"
-        android:layout_height="138dp"
-        android:src="@drawable/building2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        <!-- Arrow buttons around the person -->
 
-    <!-- Bank Button -->
-    <Button
-        android:id="@+id/Bankbutton"
-        android:layout_width="74dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="51dp"
-        android:background="#FFFFFF"
-        android:text="Bank"
-        android:textColor="#757575"
-        app:layout_constraintStart_toStartOf="@id/building1"
-        app:layout_constraintTop_toTopOf="@id/building1"
-        app:layout_constraintEnd_toEndOf="@id/building1"
-        app:layout_constraintBottom_toBottomOf="@id/building1" />
+        <Button
+            android:id="@+id/arrow_up"
+            android:layout_width="16dp"
+            android:layout_height="15dp"
+            android:background="@drawable/uparrow"
+            app:layout_constraintBottom_toTopOf="@id/person"
+            app:layout_constraintEnd_toEndOf="@id/person"
+            app:layout_constraintStart_toStartOf="@id/person"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <!-- Horizontal Road -->
-    <ImageView
-        android:id="@+id/Horizontalroad2"
-        android:layout_width="0dp"
-        android:layout_height="74dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/horizontalroad"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        <Button
+            android:id="@+id/arrow_down"
+            android:layout_width="17dp"
+            android:layout_height="14dp"
+            android:background="@drawable/downarrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/person"
+            app:layout_constraintStart_toStartOf="@id/person"
+            app:layout_constraintTop_toBottomOf="@id/person"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <!-- Vertical Road -->
-    <ImageView
-        android:id="@+id/VerticalRoad"
-        android:layout_height="0dp"
-        android:layout_width="74dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/roadhori"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        <Button
+            android:id="@+id/arrow_left"
+            android:layout_width="18dp"
+            android:layout_height="15dp"
+            android:background="@drawable/leftarrow"
+            app:layout_constraintBottom_toBottomOf="@id/person"
+            app:layout_constraintEnd_toStartOf="@id/person"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/person"
+            app:layout_constraintVertical_bias="0.636" />
+
+        <Button
+            android:id="@+id/arrow_right"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/rightarrow"
+            app:layout_constraintBottom_toBottomOf="@id/person"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/person"
+            app:layout_constraintTop_toTopOf="@id/person"
+            app:layout_constraintVertical_bias="0.619" />
+
+        <ImageView
+            android:id="@+id/building1"
+            android:layout_width="119dp"
+            android:layout_height="123dp"
+            android:src="@drawable/bank2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.543"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.056" />
+
+        <Button
+            android:id="@+id/Bankbutton"
+            android:layout_width="33dp"
+            android:layout_height="17dp"
+            android:background="@color/white"
+            android:text="Bank"
+            android:textColor="#757575"
+            app:layout_constraintBottom_toBottomOf="@+id/building1"
+            app:layout_constraintEnd_toEndOf="@+id/building1"
+            app:layout_constraintStart_toStartOf="@+id/building1"
+            app:layout_constraintTop_toTopOf="@+id/building1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
