@@ -17,6 +17,10 @@
             android:id="@+id/grass"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -79,18 +83,6 @@
             app:layout_constraintTop_toTopOf="@id/person"
             app:layout_constraintVertical_bias="0.619" />
 
-        <ImageView
-            android:id="@+id/building1"
-            android:layout_width="119dp"
-            android:layout_height="123dp"
-            android:src="@drawable/bank2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.543"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.056" />
-
         <Button
             android:id="@+id/Bankbutton"
             android:layout_width="33dp"
@@ -98,10 +90,12 @@
             android:background="@color/white"
             android:text="Bank"
             android:textColor="#757575"
-            app:layout_constraintBottom_toBottomOf="@+id/building1"
-            app:layout_constraintEnd_toEndOf="@+id/building1"
-            app:layout_constraintStart_toStartOf="@+id/building1"
-            app:layout_constraintTop_toTopOf="@+id/building1" />
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintHorizontal_bias="0.774"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            app:layout_constraintVertical_bias="0.376" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

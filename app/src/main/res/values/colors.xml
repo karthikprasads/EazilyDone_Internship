@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FFFF0000</color>
     <color name="random">#b3a58c</color>
+    <color name="green">#FF00FF00</color>
+    <color name="gg">#564343</color>
+    <color name="whitebordclor">#d2cfc0</color>
 </resources>
