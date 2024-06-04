@@ -19,15 +19,17 @@
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/person"
             android:layout_width="34dp"
             android:layout_height="37dp"
-            android:src="@drawable/rightview"
+            android:src="@drawable/test"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.466"
@@ -85,8 +87,8 @@
 
         <Button
             android:id="@+id/Bankbutton"
-            android:layout_width="33dp"
-            android:layout_height="17dp"
+            android:layout_width="30dp"
+            android:layout_height="18dp"
             android:background="@color/white"
             android:text="Bank"
             android:textColor="#757575"
@@ -96,6 +98,21 @@
             app:layout_constraintStart_toStartOf="@+id/grass"
             app:layout_constraintTop_toTopOf="@+id/grass"
             app:layout_constraintVertical_bias="0.376" />
+
+
+        <Button
+            android:id="@+id/TournamentButton"
+            android:layout_width="30dp"
+            android:layout_height="18dp"
+            android:background="@color/white"
+            android:text="Tour"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintHorizontal_bias="0.376"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            app:layout_constraintVertical_bias="0.604" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -270,10 +270,22 @@ public class SecondActivity extends AppCompatActivity {
         gestureDetector = new GestureDetector(this, new SwipeListener());
 
         Button bankButton = findViewById(R.id.Bankbutton);
+        Button tournamentButton = findViewById(R.id.TournamentButton);
+
+
         bankButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        tournamentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SecondActivity.this, TournamentActivity.class);
                 startActivity(intent);
             }
         });

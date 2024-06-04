@@ -51,6 +51,17 @@
             android:exported="false"
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
+        <activity
+            android:name=".DiscussionRoom"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            tools:ignore="DiscouragedApi"/>
+        <activity
+            android:name=".TournamentActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            tools:ignore="DiscouragedApi"/>
+
     </application>
 
 </manifest>

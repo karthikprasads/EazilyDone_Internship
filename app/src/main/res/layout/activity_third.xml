@@ -8,6 +8,7 @@
     android:padding="16dp">
 
 
+
     <Button
         android:id="@+id/chatbotButton"
         android:layout_width="98dp"
@@ -28,7 +29,7 @@
         android:textStyle="bold"
         android:textColor="@color/red"
         android:background="@color/whitebordclor"
-        android:text="Hello! I am the bank manager. How can I help you today?"
+        android:text="PLease choose below options to proceed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
