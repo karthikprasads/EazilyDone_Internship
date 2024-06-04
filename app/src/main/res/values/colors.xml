@@ -7,4 +7,7 @@
     <color name="green">#FF00FF00</color>
     <color name="gg">#564343</color>
     <color name="whitebordclor">#d2cfc0</color>
+    <color name="transparent">#00000000</color>
+    <color name="selected_option_color">#CCCCCC</color>
+
 </resources>
