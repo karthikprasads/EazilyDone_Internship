@@ -6,8 +6,12 @@ import android.os.CountDownTimer;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.os.Handler;
+import android.content.Intent;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -97,7 +101,13 @@ public class QuizActivity2 extends AppCompatActivity {
     }
 
     private void startTimer() {
-        countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
+        timeLeftInMillis = 15000; // Reset time left to initial value
+
+        if (countDownTimer != null) {
+            countDownTimer.cancel(); // Stop the existing timer
+        }
+
+        countDownTimer = new CountDownTimer(timeLeftInMillis, 1500) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timeLeftInMillis = millisUntilFinished;
@@ -114,11 +124,13 @@ public class QuizActivity2 extends AppCompatActivity {
         }.start();
     }
 
+
     private void updateCountdownText() {
         int seconds = (int) (timeLeftInMillis / 1000) % 60;
         String timeLeftFormatted = String.format("%02d:%02d", seconds / 60, seconds % 60);
         timerTextView.setText(timeLeftFormatted);
     }
+
 
     private void displayQuestion() {
         // Reset background color, selected state, font style, and size of all options
@@ -141,13 +153,18 @@ public class QuizActivity2 extends AppCompatActivity {
             option2.setEnabled(true);
             option3.setEnabled(true);
             option4.setEnabled(true);
+
+            // Start or reset the timer
+            startTimer();
         } else {
-            // No more questions, handle end of quiz
-            // You can show the score or navigate to another activity
-            // For now, let's just display a message
-            questionTextView.setText("End of Quiz");
+            // No more questions, navigate to QuizActivity3
+            Intent intent = new Intent(QuizActivity2.this, QuizActivity3.class);
+            startActivity(intent);
+            finish(); // Optional, to close QuizActivity2
         }
     }
+
+
 
     private void resetOptions(Button option) {
         // Reset background color
@@ -162,6 +179,48 @@ public class QuizActivity2 extends AppCompatActivity {
     }
 
 
+//    private void handleOptionSelection(Button option) {
+//        // Reset all options to enabled state
+//        option1.setEnabled(true);
+//        option2.setEnabled(true);
+//        option3.setEnabled(true);
+//        option4.setEnabled(true);
+//
+//        // Reset font style and size of all options
+//        option1.setTypeface(null, Typeface.NORMAL);
+//        option2.setTypeface(null, Typeface.NORMAL);
+//        option3.setTypeface(null, Typeface.NORMAL);
+//        option4.setTypeface(null, Typeface.NORMAL);
+//        option1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10); // Initial text size
+//        option2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+//        option3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+//        option4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+//
+//        // Reset background color of all options
+//        option1.setBackgroundColor(ContextCompat.getColor(this, android.R.color.transparent));
+//        option2.setBackgroundColor(ContextCompat.getColor(this, android.R.color.transparent));
+//        option3.setBackgroundColor(ContextCompat.getColor(this, android.R.color.transparent));
+//        option4.setBackgroundColor(ContextCompat.getColor(this, android.R.color.transparent));
+//
+//        // Reset selected state of all options
+//        option1.setSelected(false);
+//        option2.setSelected(false);
+//        option3.setSelected(false);
+//        option4.setSelected(false);
+//
+//        // Set font style and size for selected option
+//        option.setTypeface(null, Typeface.BOLD_ITALIC);
+//        option.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12); // Increased text size by 2sp
+//
+//        // Highlight selected option
+//        option.setSelected(true);
+//
+//        // Set background color for selected option
+//        option.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+//
+//        // Handle selected option logic
+//        // You can implement your logic here
+//    }
 
     private void handleOptionSelection(Button option) {
         // Reset all options to enabled state
@@ -202,11 +261,45 @@ public class QuizActivity2 extends AppCompatActivity {
         // Set background color for selected option
         option.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
 
-        // Handle selected option logic
-        // You can implement your logic here
+        // Set a delayed task to check if an option has been selected within the time limit
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (!optionSelected) {
+                    // User did not select an option within the time limit
+                    // Hide all views except for LinearLayout
+                    questionTextView.setVisibility(View.GONE);
+                    option1.setVisibility(View.GONE);
+                    option2.setVisibility(View.GONE);
+                    option3.setVisibility(View.GONE);
+                    option4.setVisibility(View.GONE);
+                    next.setVisibility(View.GONE);
+
+                    // Display "Timed out" message in the result TextView
+                    TextView resultTextView = findViewById(R.id.resultTextView);
+                    resultTextView.setText("Timed out");
+
+                    // Display the result in LinearLayout
+                    LinearLayout resultLayout = findViewById(R.id.result);
+                    resultLayout.setVisibility(View.VISIBLE);
+
+                    // Set onClickListener for the button inside LinearLayout to move to QuizActivity3
+                    Button nextButton = resultLayout.findViewById(R.id.nextResult);
+                    nextButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // Hide the result layout
+                            resultLayout.setVisibility(View.GONE);
+                            // Navigate to QuizActivity3
+                            Intent intent = new Intent(QuizActivity2.this, QuizActivity3.class);
+                            startActivity(intent);
+                            finish(); // Optional, to close QuizActivity2
+                        }
+                    });
+                }
+            }
+        }, timeLeftInMillis);
     }
-
-
 
 
 
@@ -218,6 +311,8 @@ public class QuizActivity2 extends AppCompatActivity {
         }
     }
 
+
+
     private void moveToNextQuestion() {
         // Check if there are more questions
         if (currentQuestionIndex < questions.length) {
@@ -227,11 +322,6 @@ public class QuizActivity2 extends AppCompatActivity {
                 boolean isCorrect = false;
                 switch (currentQuestionIndex) {
                     case 0:
-                        isCorrect = option1.isSelected() && correctAnswers[currentQuestionIndex] == 0 ||
-                                option2.isSelected() && correctAnswers[currentQuestionIndex] == 1 ||
-                                option3.isSelected() && correctAnswers[currentQuestionIndex] == 2 ||
-                                option4.isSelected() && correctAnswers[currentQuestionIndex] == 3;
-                        break;
                     case 1:
                     case 2:
                         isCorrect = option1.isSelected() && correctAnswers[currentQuestionIndex] == 0 ||
@@ -243,21 +333,92 @@ public class QuizActivity2 extends AppCompatActivity {
 
                 // Display message based on correctness
                 if (isCorrect) {
+                    // Set text for the result TextView
+                    TextView resultTextView = findViewById(R.id.resultTextView);
+                    resultTextView.setText("Correct Answer!");
                     Toast.makeText(getApplicationContext(), "Correct Answer!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Wrong Answer!", Toast.LENGTH_SHORT).show();
+                    // Set text for the result TextView
+                    TextView resultTextView = findViewById(R.id.resultTextView);
+                    resultTextView.setText("Wrong Answer!");
+
+                    // Hide all views except for LinearLayout
+                    questionTextView.setVisibility(View.GONE);
+                    option1.setVisibility(View.GONE);
+                    option2.setVisibility(View.GONE);
+                    option3.setVisibility(View.GONE);
+                    option4.setVisibility(View.GONE);
+                    next.setVisibility(View.GONE);
+
+                    // Display the result in LinearLayout
+                    LinearLayout resultLayout = findViewById(R.id.result);
+                    resultLayout.setVisibility(View.VISIBLE);
+
+                    // Set onClickListener for the button inside LinearLayout to move to QuizActivity3
+                    Button nextButton = resultLayout.findViewById(R.id.nextResult);
+                    nextButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // Hide the result layout
+                            resultLayout.setVisibility(View.GONE);
+                            // Navigate to QuizActivity3
+                            Intent intent = new Intent(QuizActivity2.this, QuizActivity3.class);
+                            startActivity(intent);
+                            finish(); // Optional, to close QuizActivity2
+                        }
+                    });
+
+                    return; // Return to prevent further execution
                 }
 
-                // Move to the next question
-                currentQuestionIndex++;
-                // Display the next question
-                displayQuestion();
+                // Hide all views except for LinearLayout
+                questionTextView.setVisibility(View.GONE);
+                option1.setVisibility(View.GONE);
+                option2.setVisibility(View.GONE);
+                option3.setVisibility(View.GONE);
+                option4.setVisibility(View.GONE);
+                next.setVisibility(View.GONE);
+
+                // Display the result in LinearLayout
+                LinearLayout resultLayout = findViewById(R.id.result);
+                resultLayout.setVisibility(View.VISIBLE);
+
+                // Set onClickListener for the button inside LinearLayout to move to the next question
+                Button nextButton = resultLayout.findViewById(R.id.nextResult);
+                nextButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Hide the result layout
+                        resultLayout.setVisibility(View.GONE);
+                        // Show all views except for LinearLayout
+                        questionTextView.setVisibility(View.VISIBLE);
+                        option1.setVisibility(View.VISIBLE);
+                        option2.setVisibility(View.VISIBLE);
+                        option3.setVisibility(View.VISIBLE);
+                        option4.setVisibility(View.VISIBLE);
+                        next.setVisibility(View.VISIBLE);
+
+                        // Move to the next question
+                        currentQuestionIndex++;
+                        // Display the next question
+                        displayQuestion();
+                    }
+                });
             } else {
                 // User has not selected any option
                 Toast.makeText(getApplicationContext(), "Please select an option", Toast.LENGTH_SHORT).show();
             }
+        } else {
+            // No more questions, navigate to QuizActivity3
+            Intent intent = new Intent(QuizActivity2.this, QuizActivity3.class);
+            startActivity(intent);
+            finish(); // Optional, to close QuizActivity2
         }
     }
+
+
+
+
 
 
 }

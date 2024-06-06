@@ -116,5 +116,44 @@
         app:layout_constraintVertical_bias="0.387"
         tools:ignore="MissingConstraints" />
 
+    <LinearLayout
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/quiz_ui3"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.639"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.502">
+
+        <!-- Result TextView to display correct or wrong -->
+        <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Next button to move to the next question -->
+        <Button
+            android:id="@+id/nextResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/black"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:text="Next"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

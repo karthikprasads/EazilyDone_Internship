@@ -276,7 +276,7 @@ public class SecondActivity extends AppCompatActivity {
         bankButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+                Intent intent = new Intent(SecondActivity.this, DiscussionRoom.class);
                 startActivity(intent);
             }
         });
@@ -401,22 +401,7 @@ public class SecondActivity extends AppCompatActivity {
             // Adjust map movement in the opposite direction
             secondLayout.setTranslationX(secondLayout.getTranslationX() - dx);
             secondLayout.setTranslationY(secondLayout.getTranslationY() - dy);
-
-            // Also move arrow buttons
-            View upArrow = findViewById(R.id.arrow_up);
-            View downArrow = findViewById(R.id.arrow_down);
-            View leftArrow = findViewById(R.id.arrow_left);
-            View rightArrow = findViewById(R.id.arrow_right);
-
-            ConstraintSet constraintSet = new ConstraintSet();
-            constraintSet.clone(secondLayout);
-
-            constraintSet.connect(upArrow.getId(), ConstraintSet.BOTTOM, personImage.getId(), ConstraintSet.TOP);
-            constraintSet.connect(downArrow.getId(), ConstraintSet.TOP, personImage.getId(), ConstraintSet.BOTTOM);
-            constraintSet.connect(leftArrow.getId(), ConstraintSet.END, personImage.getId(), ConstraintSet.START);
-            constraintSet.connect(rightArrow.getId(), ConstraintSet.START, personImage.getId(), ConstraintSet.END);
-
-            constraintSet.applyTo(secondLayout);
         }
     }
+
 }
