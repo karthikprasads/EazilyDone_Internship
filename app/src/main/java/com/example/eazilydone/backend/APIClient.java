@@ -13,7 +13,7 @@ public class APIClient {
                 .build();
         return r;
     }
-    public static APIService getBotService(){
+    public static APIService Service(){
         return getRetrofit().create(APIService.class);
     }
 }

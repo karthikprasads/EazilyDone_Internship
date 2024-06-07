@@ -101,7 +101,7 @@ public class chatBotActivity extends AppCompatActivity {
     protected void getBotResponse(String msg) {
         Map<String, String> mp = new HashMap<>();
         mp.put("msg", msg);
-        Call<Map<String, String>> call = APIClient.getBotService().getBotResponse(mp);
+        Call<Map<String, String>> call = APIClient.Service().getBotResponse(mp);
         call.enqueue(new Callback<Map<String, String>>() {
             @Override
             public void onResponse(Call<Map<String, String>> call, Response<Map<String, String>> response) {
