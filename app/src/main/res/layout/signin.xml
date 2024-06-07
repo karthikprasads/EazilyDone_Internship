@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ui2"
+    android:background="@drawable/ui4"
     android:padding="16dp">
 
     <!-- Sign In Card -->
@@ -11,7 +11,7 @@
         android:layout_width="469dp"
         android:layout_height="320dp"
         android:layout_centerInParent="true"
-        android:background="@drawable/ui4"
+        android:background="@drawable/ui4e"
         android:elevation="4dp"
         android:orientation="vertical"
         android:padding="16dp"
@@ -23,7 +23,8 @@
             android:layout_gravity="center"
             android:text="Sign In"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/full_dark_black"/>
 
         <EditText
             android:id="@+id/username"
@@ -32,7 +33,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Username or Gmail"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+
+            android:textStyle="bold"
+            android:textColor="@color/full_dark_black"/>
 
         <EditText
             android:id="@+id/password"
@@ -40,7 +44,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textStyle="bold"
+            android:textColor="@color/full_dark_black"/>
 
         <Button
             android:id="@+id/signInButton"
@@ -58,7 +64,8 @@
             android:clickable="true"
             android:focusable="true"
             android:text="Forgot Password?"
-            android:textColor="@android:color/holo_blue_dark" />
+            android:textStyle="bold"
+            android:textColor="@color/full_dark_black" />
 
         <TextView
             android:id="@+id/createAccount"
@@ -69,7 +76,8 @@
             android:clickable="true"
             android:focusable="true"
             android:text="Create an Account"
-            android:textColor="@android:color/holo_blue_dark" />
+            android:textStyle="bold"
+            android:textColor="@color/full_dark_black" />
 
     </LinearLayout>
 
