@@ -19,8 +19,10 @@
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -63,7 +65,61 @@
             app:layout_constraintTop_toTopOf="@+id/grass"
             app:layout_constraintVertical_bias="0.604" />
 
+        <com.example.eazilydone.Obstacle
+            android:layout_width="261dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="124dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="19dp" />
+
+        <com.example.eazilydone.Obstacle
+            android:layout_width="261dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="196dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <com.example.eazilydone.Obstacle
+            android:layout_width="261dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="52dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="320dp" />
+
+        <com.example.eazilydone.Obstacle
+            android:layout_width="28dp"
+            android:layout_height="128dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.859"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="423dp" />
+
+        <com.example.eazilydone.Obstacle
+            android:layout_width="156dp"
+            android:layout_height="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.572"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="414dp" />
+
+        <com.example.eazilydone.Obstacle
+            android:layout_width="156dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="88dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.377"
+            tools:ignore="MissingConstraints" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <!-- Static box for arrow buttons outside the secondLayout -->
     <LinearLayout
@@ -126,4 +182,5 @@
             android:background="@drawable/downarrow"
             tools:ignore="ContentDescription" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
