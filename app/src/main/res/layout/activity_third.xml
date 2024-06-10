@@ -1,102 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/gg"
     android:padding="16dp">
 
-
-
-    <Button
-        android:id="@+id/chatbotButton"
-        android:layout_width="98dp"
-        android:layout_height="42dp"
-        android:text="Chatbot"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.948" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="visible"
+        app:layout_constraintVertical_bias="0.5">
 
-    <TextView
-        android:id="@+id/bankPersonText"
-        android:layout_width="361dp"
-        android:layout_height="23dp"
-        android:layout_margin="10dp"
-        android:textStyle="bold"
-        android:textColor="@color/red"
+        <TextView
+            android:id="@+id/bankPersonText"
+            android:layout_width="361dp"
+            android:layout_height="23dp"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:background="@color/whitebordclor"
+            android:text="PLease choose below options to proceed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.501"
+            android:visibility="visible"
+
+            />
+
+        <Button
+            android:id="@+id/accountDetailsButton"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:text="Account Details"
+            android:textColor="@color/gg"
+            android:textSize="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.65"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.645"
+            android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/createAccountButton"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:text="Create Account"
+            android:textColor="@color/gg"
+            android:textSize="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.31"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.648"
+            android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/depositButton"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:text="Deposit"
+            android:textColor="@color/gg"
+            android:textSize="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.308"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.793"
+            android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/otherButton"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:text="Other"
+            android:textColor="@color/gg"
+            android:textSize="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.649"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.78"
+            android:visibility="visible"/>
+
+
+
+        <Button
+            android:id="@+id/chatbotButton"
+            android:layout_width="98dp"
+            android:layout_height="42dp"
+            android:text="Chatbot"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.948" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/createAccountLayout"
+        android:layout_width="711dp"
+        android:layout_height="288dp"
         android:background="@color/whitebordclor"
-        android:text="PLease choose below options to proceed"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.501"
+        app:layout_constraintVertical_bias="0.5"
+        android:visibility="invisible">
 
-        />
 
-    <Button
-        android:id="@+id/accountDetailsButton"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_margin="5dp"
-        android:text="Account Details"
-        android:textColor="@color/gg"
-        android:textSize="8dp"
+        <TextView
+            android:id="@+id/typesOfAccounts"
+            android:layout_width="320dp"
+            android:layout_height="43dp"
+            android:gravity="center"
+            android:text="Types of Accounts"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.403"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="653dp"
+            android:layout_height="203dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.955">
+
+            <TextView
+                android:id="@+id/accountTypesText"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/clickToCreateAccountButton"
+            android:layout_width="137dp"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Click to create"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/closeCreateAccountLayoutButton"
+            android:layout_width="45dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="226dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:text="X"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/accountDetails"
+        android:layout_width="711dp"
+        android:layout_height="288dp"
+        android:background="@color/whitebordclor"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.645" />
+        app:layout_constraintVertical_bias="0.5"
+        android:visibility="visible">
 
-    <Button
-        android:id="@+id/createAccountButton"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_margin="5dp"
-        android:text="Create Account"
-        android:textColor="@color/gg"
-        android:textSize="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.31"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.648" />
+        //
 
-    <Button
-        android:id="@+id/depositButton"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_margin="5dp"
-        android:text="Deposit"
-        android:textColor="@color/gg"
-        android:textSize="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.793" />
 
-    <Button
-        android:id="@+id/otherButton"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_margin="5dp"
-        android:text="Other"
-        android:textColor="@color/gg"
-        android:textSize="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.649"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.78" />
+
+        <Button
+            android:id="@+id/CloseAccountDetailsLayoutButton"
+            android:layout_width="45dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="226dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:text="X"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

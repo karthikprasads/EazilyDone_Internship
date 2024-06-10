@@ -21,7 +21,7 @@
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
         <activity
-            android:name=".SplashActivity"
+            android:name=".ThirdActivity"
             android:exported="true"
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi">
@@ -57,7 +57,7 @@
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
         <activity
-            android:name=".ThirdActivity"
+            android:name=".SplashActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
@@ -78,6 +78,11 @@
             tools:ignore="DiscouragedApi"/>
         <activity
             android:name=".QuizActivity3"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            tools:ignore="DiscouragedApi"/>
+        <activity
+            android:name=".CreateAccountActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
