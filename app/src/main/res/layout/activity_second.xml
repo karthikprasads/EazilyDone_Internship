@@ -14,6 +14,7 @@
         android:padding="16dp">
 
         <com.example.eazilydone.Obstacle
+            android:visibility="invisible"
             android:layout_width="156dp"
             android:layout_height="16dp"
             android:layout_marginEnd="212dp"
@@ -32,6 +33,7 @@
             tools:layout_editor_absoluteY="5dp" />
 
         <com.example.eazilydone.Obstacle
+            android:visibility="invisible"
             android:layout_width="192dp"
             android:layout_height="114dp"
             android:layout_marginStart="493dp"
@@ -45,6 +47,7 @@
             tools:ignore="MissingConstraints" />
 
         <com.example.eazilydone.Obstacle
+            android:visibility="invisible"
             android:layout_width="60dp"
             android:layout_height="78dp"
             android:layout_marginStart="342dp"
@@ -58,6 +61,7 @@
             tools:ignore="MissingConstraints" />
 
         <com.example.eazilydone.Obstacle
+            android:visibility="invisible"
             android:layout_width="148dp"
             android:layout_height="110dp"
             android:layout_marginStart="544dp"
@@ -71,6 +75,7 @@
             tools:ignore="MissingConstraints" />
 
         <com.example.eazilydone.Obstacle
+            android:visibility="invisible"
             android:layout_width="163dp"
             android:layout_height="29dp"
             tools:ignore="MissingConstraints"
@@ -118,6 +123,7 @@
             app:layout_constraintVertical_bias="0.604" />
 
         <com.example.eazilydone.Obstacle
+            android:visibility="invisible"
             android:layout_width="257dp"
             android:layout_height="100dp"
             android:layout_marginStart="41dp"
@@ -131,12 +137,14 @@
             tools:ignore="MissingConstraints" />
 
         <com.example.eazilydone.Obstacle
+
             android:layout_width="272dp"
             android:layout_height="148dp"
             android:layout_marginStart="26dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="401dp"
             android:layout_marginBottom="215dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/grass"
             app:layout_constraintEnd_toEndOf="@+id/grass"
             app:layout_constraintStart_toStartOf="@+id/grass"
@@ -144,6 +152,7 @@
             tools:ignore="MissingConstraints" />
 
         <com.example.eazilydone.Obstacle
+            android:visibility="invisible"
             android:layout_width="257dp"
             android:layout_height="100dp"
             android:layout_marginStart="149dp"
@@ -157,6 +166,7 @@
             tools:ignore="MissingConstraints" />
 
         <com.example.eazilydone.Obstacle
+            android:visibility="invisible"
             android:layout_width="26dp"
             android:layout_height="115dp"
             android:layout_marginStart="459dp"
@@ -170,6 +180,7 @@
             tools:ignore="MissingConstraints" />
 
         <com.example.eazilydone.Obstacle
+            android:visibility="invisible"
             android:layout_width="78dp"
             android:layout_height="102dp"
             android:layout_marginStart="344dp"
@@ -183,6 +194,7 @@
             tools:ignore="MissingConstraints" />
 
         <com.example.eazilydone.Obstacle
+            android:visibility="invisible"
             android:layout_width="78dp"
             android:layout_height="107dp"
             android:layout_marginStart="461dp"
@@ -196,6 +208,7 @@
             tools:ignore="MissingConstraints" />
 
         <com.example.eazilydone.Obstacle
+            android:visibility="invisible"
             android:layout_width="24dp"
             android:layout_height="18dp"
             android:layout_marginStart="422dp"
@@ -209,6 +222,7 @@
             tools:ignore="MissingConstraints" />
 
         <com.example.eazilydone.Obstacle
+            android:visibility="invisible"
             android:layout_width="24dp"
             android:layout_height="18dp"
             android:layout_marginStart="445dp"
@@ -221,6 +235,7 @@
             app:layout_constraintTop_toTopOf="@+id/grass"
             tools:ignore="MissingConstraints" />
 
+
         <LinearLayout
             android:id="@+id/arrowBox"
             android:layout_width="102dp"
@@ -232,6 +247,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0">
+
 
             <Button
                 android:id="@+id/arrow_up"
@@ -282,6 +298,45 @@
                 android:background="@drawable/downarrow"
                 tools:ignore="ContentDescription" />
         </LinearLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cashBox"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/cashImage"
+                android:layout_width="48dp"
+                android:layout_height="47dp"
+                android:src="@drawable/cash"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/cashAmount"
+                android:layout_width="83dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="30dp"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:hint="1000"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/cashImage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
