@@ -21,7 +21,7 @@
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".DiscussionRoom"
             android:exported="true"
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi">
@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".IntroActivity"
+            android:name=".MainActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
@@ -52,7 +52,7 @@
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
         <activity
-            android:name=".DiscussionRoom"
+            android:name=".CreateAccountActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
@@ -72,7 +72,7 @@
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
         <activity
-            android:name=".ThirdActivity"
+            android:name=".IntroActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
@@ -82,7 +82,7 @@
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
         <activity
-            android:name=".CreateAccountActivity"
+            android:name=".ThirdActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
