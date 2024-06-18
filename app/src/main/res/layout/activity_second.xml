@@ -15,7 +15,7 @@
 
         <com.example.eazilydone.Obstacle
             android:id="@+id/obstacle1"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_width="156dp"
             android:layout_height="16dp"
             android:layout_marginEnd="212dp"
@@ -36,7 +36,7 @@
 
         <com.example.eazilydone.Obstacle
             android:id="@+id/obstacle2"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_width="192dp"
             android:layout_height="114dp"
             android:layout_marginStart="493dp"
@@ -57,7 +57,7 @@
             android:layout_marginTop="138dp"
             android:layout_marginEnd="295dp"
             android:layout_marginBottom="140dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/grass"
             app:layout_constraintEnd_toEndOf="@+id/grass"
             app:layout_constraintHorizontal_bias="0.512"
@@ -68,7 +68,7 @@
 
         <com.example.eazilydone.Obstacle
             android:id="@+id/obstacle4"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_width="148dp"
             android:layout_height="110dp"
             android:layout_marginStart="544dp"
@@ -89,7 +89,7 @@
             android:layout_marginTop="48dp"
             android:layout_marginEnd="9dp"
             android:layout_marginBottom="227dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/grass"
             app:layout_constraintEnd_toEndOf="@+id/grass"
             app:layout_constraintHorizontal_bias="0.721"
@@ -102,7 +102,7 @@
             android:id="@+id/obstacle5"
             android:layout_width="166dp"
             android:layout_height="1dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.609"
@@ -116,7 +116,7 @@
             android:layout_width="71dp"
             android:layout_height="63dp"
             android:layout_marginBottom="288dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.459"
@@ -137,45 +137,49 @@
 
         <Button
             android:id="@+id/Bankbutton"
-            android:layout_width="30dp"
-            android:layout_height="18dp"
-            android:background="@color/white"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:background="@drawable/bank"
             android:text="Bank"
-            android:textColor="#757575"
+            android:textColor="#ffffff"
+            android:textSize="10dp"
             app:layout_constraintBottom_toBottomOf="@+id/grass"
             app:layout_constraintEnd_toEndOf="@+id/grass"
-            app:layout_constraintHorizontal_bias="0.774"
+            app:layout_constraintHorizontal_bias="0.7"
             app:layout_constraintStart_toStartOf="@+id/grass"
             app:layout_constraintTop_toTopOf="@+id/grass"
-            app:layout_constraintVertical_bias="0.376" />
+            app:layout_constraintVertical_bias="0.549" />
 
         <Button
             android:id="@+id/TournamentButton"
-            android:layout_width="30dp"
-            android:layout_height="18dp"
-            android:background="@color/white"
-            android:text="Tour"
-            android:textColor="#000000"
+            android:layout_width="46dp"
+            android:layout_height="66dp"
+            android:background="@drawable/tournament"
+            android:text="Tournment"
+            android:textColor="#ffffff"
+            android:textSize="6dp"
             app:layout_constraintBottom_toBottomOf="@+id/grass"
             app:layout_constraintEnd_toEndOf="@+id/grass"
-            app:layout_constraintHorizontal_bias="0.376"
+            app:layout_constraintHorizontal_bias="0.541"
             app:layout_constraintStart_toStartOf="@+id/grass"
             app:layout_constraintTop_toTopOf="@+id/grass"
-            app:layout_constraintVertical_bias="0.604" />
+            app:layout_constraintVertical_bias="0.086" />
 
         <com.example.eazilydone.Obstacle
             android:id="@+id/obstacle6"
-            android:visibility="visible"
             android:layout_width="257dp"
             android:layout_height="100dp"
             android:layout_marginStart="41dp"
             android:layout_marginTop="210dp"
             android:layout_marginEnd="401dp"
             android:layout_marginBottom="69dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/grass"
             app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintHorizontal_bias="0.537"
             app:layout_constraintStart_toStartOf="@+id/grass"
             app:layout_constraintTop_toTopOf="@+id/grass"
+            app:layout_constraintVertical_bias="0.16"
             tools:ignore="MissingConstraints" />
 
         <com.example.eazilydone.Obstacle
@@ -186,7 +190,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="401dp"
             android:layout_marginBottom="215dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/grass"
             app:layout_constraintEnd_toEndOf="@+id/grass"
             app:layout_constraintStart_toStartOf="@+id/grass"
@@ -201,7 +205,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="401dp"
             android:layout_marginBottom="215dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/grass"
             app:layout_constraintEnd_toEndOf="@+id/grass"
             app:layout_constraintHorizontal_bias="0.0"
@@ -212,7 +216,7 @@
 
         <com.example.eazilydone.Obstacle
             android:id="@+id/obstacle8"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_width="257dp"
             android:layout_height="100dp"
             android:layout_marginStart="149dp"
@@ -227,7 +231,7 @@
 
         <com.example.eazilydone.Obstacle
             android:id="@+id/obstacle9"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_width="26dp"
             android:layout_height="115dp"
             android:layout_marginStart="459dp"
@@ -242,7 +246,7 @@
 
         <com.example.eazilydone.Obstacle
             android:id="@+id/obstacle10"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_width="78dp"
             android:layout_height="102dp"
             android:layout_marginStart="344dp"
@@ -257,7 +261,7 @@
 
         <com.example.eazilydone.Obstacle
             android:id="@+id/obstacle11"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_width="78dp"
             android:layout_height="107dp"
             android:layout_marginStart="461dp"
@@ -272,7 +276,7 @@
 
         <com.example.eazilydone.Obstacle
             android:id="@+id/obstacle12"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_width="24dp"
             android:layout_height="18dp"
             android:layout_marginStart="422dp"
@@ -287,7 +291,7 @@
 
         <com.example.eazilydone.Obstacle
             android:id="@+id/obstacle13"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_width="24dp"
             android:layout_height="18dp"
             android:layout_marginStart="445dp"

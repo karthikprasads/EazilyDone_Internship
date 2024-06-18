@@ -8,9 +8,9 @@
 
     <ImageView
         android:id="@+id/personImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/guide_image"
+        android:layout_width="129dp"
+        android:layout_height="147dp"
+        android:src="@drawable/player"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.032"
@@ -36,6 +36,8 @@
         android:background="@drawable/dialogue_box_background"
         android:text="How can I help you?"
         android:textColor="@color/white"
+
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.864"

@@ -28,11 +28,18 @@ public class TournamentActivity extends AppCompatActivity {
         rulesDisplay = findViewById(R.id.RulesDisplay);
 
         // Initialize rules array with tournament rules
+//        rulesArray = new String[]{
+//                "1) All players should enter your name and then you will be given equal number of points(100)",
+//                "2) Your main intent is to finish few tasks and try to gain more points",
+//                "3) For top three players, there will be awarded few prizes",
+//                "4) Please read the instructions carefully before starting the game"
+//        };
+
         rulesArray = new String[]{
-                "1) All players should enter your name and then you will be given equal number of points(100)",
-                "2) Your main intent is to finish few tasks and try to gain more points",
-                "3) For top three players, there will be awarded few prizes",
-                "4) Please read the instructions carefully before starting the game"
+                "1) siyaluma krīḍakayin obagē nama ætulat kaḷa yutu atara eviṭa obaṭa samāna lakuṇu saṁkhyāvak (100) labā denu æta",
+                "2) obē pradhāna abhiprāya vannē kāryayan kihipayak avasan kara tavat lakuṇu labā gænīmaṭa utsāha kirīmayi",
+                "3) hon̆dama krīḍakayin tidenā san̆dahā, tyāga kihipayak pradānaya kerē",
+                "4) krīḍāva ārambha kirīmaṭa pera karuṇākara upades hon̆din kiyavanna"
         };
 
         // Start displaying rules

@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.eazilydone.chatbot.chatBotActivity;
+
 public class ThirdActivity extends AppCompatActivity {
 
     private View buttonsContainer;
@@ -65,8 +67,8 @@ public class ThirdActivity extends AppCompatActivity {
         chatbotButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ThirdActivity.this, "Chatbot Selected", Toast.LENGTH_SHORT).show();
-                // Implement action for Chatbot
+                Intent intent = new Intent(ThirdActivity.this, chatBotActivity.class);
+                startActivity(intent);
             }
         });
 
