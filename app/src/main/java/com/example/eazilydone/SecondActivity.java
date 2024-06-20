@@ -1,56 +1,10 @@
-//package com.example.eazilydone;
-//
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.os.Handler;
-//import android.view.View;
-//import android.widget.Button;
-//import android.widget.ImageView;
-//import androidx.appcompat.app.AppCompatActivity;
-//import com.bumptech.glide.Glide;
-//
-//public class SecondActivity extends AppCompatActivity {
-//
-//    //private static final int INTRO_DURATION = 000; // 2 seconds
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//        // Set the introductory layout
-//       // setContentView(R.layout.activity_cloud);
-//
-//        // Load the GIF into the ImageView using Glide
-//      //  ImageView introImageView = findViewById(R.id.introImageView);
-//     //   Glide.with(this).asGif().load(R.drawable.cloud).into(introImageView);
-//
-//        // Use a Handler to switch to the main layout after the specified duration
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                // Set the main layout after the delay
-//                setContentView(R.layout.activity_second);
-//
-//                // Set up the button click listener after setting the main layout
-//                Button bankButton = findViewById(R.id.Bankbutton);
-//                bankButton.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
-//                        startActivity(intent);
-//                    }
-//                });
-//            }
-//        },0);
-//    }
-//}
-
-
-
 package com.example.eazilydone;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -59,24 +13,27 @@ import android.widget.Button;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SecondActivity extends AppCompatActivity {
 
     private ScaleGestureDetector scaleGestureDetector;
     private GestureDetector gestureDetector;
-    private float scaleFactor = 1.0f;
-    private float maxScaleFactor = 3.0f;
+    private float scaleFactor = 3.0f; // Initial zoom level
+    private float maxScaleFactor = 4.0f;
     private float minScaleFactor = 1.0f;
     private float lastFocusX;
     private float lastFocusY;
     private float offsetX = 0f;
     private float offsetY = 0f;
-    private static final float SWIPE_SPEED_MULTIPLIER = 2.0f; // Adjust as needed
+    private static final float SWIPE_SPEED_MULTIPLIER = 5.0f; // Adjust as needed
 
     private ImageView personImage;
     private ConstraintLayout secondLayout;
     private static final int MOVE_STEP = 20; // Number of pixels to move
+    private List<Obstacle> obstacles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,26 +44,36 @@ public class SecondActivity extends AppCompatActivity {
         gestureDetector = new GestureDetector(this, new SwipeListener());
 
         Button bankButton = findViewById(R.id.Bankbutton);
-        bankButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
-                startActivity(intent);
-            }
+        Button tournamentButton = findViewById(R.id.TournamentButton);
+        bankButton.setOnClickListener(v -> {
+            Intent intent = new Intent(SecondActivity.this, DiscussionRoom.class);
+            startActivity(intent);
+        });
+
+        tournamentButton.setOnClickListener(v -> {
+            Intent intent = new Intent(SecondActivity.this, TournamentActivity.class);
+            startActivity(intent);
         });
 
         personImage = findViewById(R.id.person);
         secondLayout = findViewById(R.id.secondLayout);
 
         // Set initial zoom
-        scaleFactor = 2.1f; // Set your initial zoom level here
         secondLayout.setScaleX(scaleFactor);
         secondLayout.setScaleY(scaleFactor);
 
-        findViewById(R.id.arrow_up).setOnClickListener(new MoveClickListener(0, -MOVE_STEP));
-        findViewById(R.id.arrow_down).setOnClickListener(new MoveClickListener(0, MOVE_STEP));
-        findViewById(R.id.arrow_left).setOnClickListener(new MoveClickListener(-MOVE_STEP, 0));
-        findViewById(R.id.arrow_right).setOnClickListener(new MoveClickListener(MOVE_STEP, 0));
+        findViewById(R.id.arrow_up).setOnTouchListener(new MoveTouchListener(0, -MOVE_STEP));
+        findViewById(R.id.arrow_down).setOnTouchListener(new MoveTouchListener(0, MOVE_STEP));
+        findViewById(R.id.arrow_left).setOnTouchListener(new MoveTouchListener(-MOVE_STEP, 0));
+        findViewById(R.id.arrow_right).setOnTouchListener(new MoveTouchListener(MOVE_STEP, 0));
+
+        obstacles = new ArrayList<>();
+        for (int i = 0; i < secondLayout.getChildCount(); i++) {
+            View child = secondLayout.getChildAt(i);
+            if (child instanceof Obstacle) {
+                obstacles.add((Obstacle) child);
+            }
+        }
     }
 
     @Override
@@ -142,7 +109,6 @@ public class SecondActivity extends AppCompatActivity {
             lastFocusX = focusX;
             lastFocusY = focusY;
 
-            View secondLayout = findViewById(R.id.secondLayout);
             secondLayout.setScaleX(scaleFactor);
             secondLayout.setScaleY(scaleFactor);
             secondLayout.setTranslationX(offsetX);
@@ -160,7 +126,6 @@ public class SecondActivity extends AppCompatActivity {
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             float diffX = e2.getX() - e1.getX();
             float diffY = e2.getY() - e1.getY();
-            View secondLayout = findViewById(R.id.secondLayout);
 
             if (Math.abs(diffX) > Math.abs(diffY)) {
                 if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
@@ -190,37 +155,109 @@ public class SecondActivity extends AppCompatActivity {
         return Math.max(-maxTranslation, Math.min(translation, maxTranslation));
     }
 
-    private class MoveClickListener implements View.OnClickListener {
+    private class MoveTouchListener implements View.OnTouchListener {
         private final int dx;
         private final int dy;
+        private final Handler handler = new Handler();
+        private Runnable runnable;
 
-        public MoveClickListener(int dx, int dy) {
+        public MoveTouchListener(int dx, int dy) {
             this.dx = dx;
             this.dy = dy;
         }
 
         @Override
-        public void onClick(View v) {
-            ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) personImage.getLayoutParams();
-            params.horizontalBias += (float) dx / secondLayout.getWidth();
-            params.verticalBias += (float) dy / secondLayout.getHeight();
-            personImage.setLayoutParams(params);
-
-            // Also move arrow buttons
-            View upArrow = findViewById(R.id.arrow_up);
-            View downArrow = findViewById(R.id.arrow_down);
-            View leftArrow = findViewById(R.id.arrow_left);
-            View rightArrow = findViewById(R.id.arrow_right);
-
-            ConstraintSet constraintSet = new ConstraintSet();
-            constraintSet.clone(secondLayout);
-
-            constraintSet.connect(upArrow.getId(), ConstraintSet.BOTTOM, personImage.getId(), ConstraintSet.TOP);
-            constraintSet.connect(downArrow.getId(), ConstraintSet.TOP, personImage.getId(), ConstraintSet.BOTTOM);
-            constraintSet.connect(leftArrow.getId(), ConstraintSet.END, personImage.getId(), ConstraintSet.START);
-            constraintSet.connect(rightArrow.getId(), ConstraintSet.START, personImage.getId(), ConstraintSet.END);
-
-            constraintSet.applyTo(secondLayout);
+        public boolean onTouch(View v, MotionEvent event) {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        if (!isCollisionInDirection(dx, dy)) {
+                            movePlayer(dx, dy);
+                        }
+                        handler.postDelayed(this, 100); // adjust the delay as needed
+                    }
+                };
+                handler.post(runnable);
+            } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                if (runnable != null) {
+                    handler.removeCallbacks(runnable);
+                }
+            }
+            return true;
         }
     }
+
+    private boolean isCollisionInDirection(int dx, int dy) {
+        Rect personRect = new Rect();
+        personImage.getHitRect(personRect);
+
+        // Calculate the new position if the player moves in the given direction
+        personRect.offset(dx, dy);
+
+        for (Obstacle obstacle : obstacles) {
+            Rect obstacleRect = new Rect();
+            obstacle.getHitRect(obstacleRect);
+            if (Rect.intersects(obstacleRect, personRect)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+//    private void movePlayer(int dx, int dy) {
+//        ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) personImage.getLayoutParams();
+//        params.horizontalBias += (float) dx / secondLayout.getWidth();
+//        params.verticalBias += (float) dy / secondLayout.getHeight();
+//        personImage.setLayoutParams(params);
+//
+//        // Update the translation of the map to move in the opposite direction of the character
+//        float newTranslationX = secondLayout.getTranslationX() - dx;
+//        float newTranslationY = secondLayout.getTranslationY() - dy;
+//
+//        // Clamp the translations to ensure the map does not move out of bounds
+//        newTranslationX = clampTranslation(newTranslationX, secondLayout.getWidth(), scaleFactor);
+//        newTranslationY = clampTranslation(newTranslationY, secondLayout.getHeight(), scaleFactor);
+//
+//        secondLayout.setTranslationX(newTranslationX);
+//        secondLayout.setTranslationY(newTranslationY);
+//    }
+
+
+    private void movePlayer(int dx, int dy) {
+        ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) personImage.getLayoutParams();
+        params.horizontalBias += (float) dx / secondLayout.getWidth();
+        params.verticalBias += (float) dy / secondLayout.getHeight();
+        personImage.setLayoutParams(params);
+
+        // Determine the direction based on dx and dy
+        if (dx > 0) {
+            // Move right
+            personImage.setImageResource(R.drawable.right);
+        } else if (dx < 0) {
+            // Move left
+            personImage.setImageResource(R.drawable.left);
+        } else if (dy > 0) {
+            // Move down
+            personImage.setImageResource(R.drawable.down);
+        } else if (dy < 0) {
+            // Move up
+            personImage.setImageResource(R.drawable.up);
+        }
+
+        // Update the translation of the map to move in the opposite direction of the character
+        float newTranslationX = secondLayout.getTranslationX() - dx;
+        float newTranslationY = secondLayout.getTranslationY() - dy;
+
+        // Clamp the translations to ensure the map does not move out of bounds
+        newTranslationX = clampTranslation(newTranslationX, secondLayout.getWidth(), scaleFactor);
+        newTranslationY = clampTranslation(newTranslationY, secondLayout.getHeight(), scaleFactor);
+
+        secondLayout.setTranslationX(newTranslationX);
+        secondLayout.setTranslationY(newTranslationY);
+    }
+
+
 }

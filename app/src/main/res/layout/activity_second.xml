@@ -10,20 +10,124 @@
         android:id="@+id/secondLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
-        android:background="@drawable/ui6">
+        android:background="@drawable/ui6"
+        android:padding="16dp">
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle1"
+            android:visibility="invisible"
+            android:layout_width="156dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="212dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/grass"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ContentDescription"
+            tools:layout_editor_absoluteY="8dp" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle2"
+            android:visibility="invisible"
+            android:layout_width="192dp"
+            android:layout_height="114dp"
+            android:layout_marginStart="493dp"
+            android:layout_marginTop="204dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="61dp"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            tools:ignore="MissingConstraints" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle3"
+            android:layout_width="62dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="342dp"
+            android:layout_marginTop="138dp"
+            android:layout_marginEnd="295dp"
+            android:layout_marginBottom="140dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            app:layout_constraintVertical_bias="0.612"
+            tools:ignore="MissingConstraints" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle4"
+            android:visibility="invisible"
+            android:layout_width="148dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="544dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="227dp"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            tools:ignore="MissingConstraints" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle16"
+            android:layout_width="22dp"
+            android:layout_height="154dp"
+            android:layout_marginStart="544dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="227dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintHorizontal_bias="0.721"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle5"
+            android:layout_width="166dp"
+            android:layout_height="1dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.609"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.02"
+            tools:ignore="MissingConstraints" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle14"
+            android:layout_width="71dp"
+            android:layout_height="63dp"
+            android:layout_marginBottom="288dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.459"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/person"
             android:layout_width="34dp"
             android:layout_height="37dp"
-            android:src="@drawable/rightview"
+            android:src="@drawable/up"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.466"
@@ -31,78 +135,285 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.501" />
 
-        <!-- Arrow buttons around the person -->
+        <Button
+            android:id="@+id/Bankbutton"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:background="@drawable/bank"
+            android:text="Bank"
+            android:textColor="#ffffff"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintHorizontal_bias="0.7"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            app:layout_constraintVertical_bias="0.549" />
+
+        <Button
+            android:id="@+id/TournamentButton"
+            android:layout_width="46dp"
+            android:layout_height="66dp"
+            android:background="@drawable/tournament"
+            android:text="Tournment"
+            android:textColor="#ffffff"
+            android:textSize="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintHorizontal_bias="0.541"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            app:layout_constraintVertical_bias="0.086" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle6"
+            android:layout_width="257dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="41dp"
+            android:layout_marginTop="210dp"
+            android:layout_marginEnd="401dp"
+            android:layout_marginBottom="69dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintHorizontal_bias="0.537"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            app:layout_constraintVertical_bias="0.16"
+            tools:ignore="MissingConstraints" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle7"
+            android:layout_width="272dp"
+            android:layout_height="148dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="401dp"
+            android:layout_marginBottom="215dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            tools:ignore="MissingConstraints" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle15"
+            android:layout_width="47dp"
+            android:layout_height="183dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="401dp"
+            android:layout_marginBottom="215dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle8"
+            android:visibility="invisible"
+            android:layout_width="257dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="149dp"
+            android:layout_marginTop="276dp"
+            android:layout_marginEnd="293dp"
+            android:layout_marginBottom="3dp"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            tools:ignore="MissingConstraints" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle9"
+            android:visibility="invisible"
+            android:layout_width="26dp"
+            android:layout_height="115dp"
+            android:layout_marginStart="459dp"
+            android:layout_marginTop="198dp"
+            android:layout_marginEnd="212dp"
+            android:layout_marginBottom="53dp"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            tools:ignore="MissingConstraints" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle10"
+            android:visibility="invisible"
+            android:layout_width="78dp"
+            android:layout_height="102dp"
+            android:layout_marginStart="344dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="277dp"
+            android:layout_marginBottom="275dp"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            tools:ignore="MissingConstraints" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle11"
+            android:visibility="invisible"
+            android:layout_width="78dp"
+            android:layout_height="107dp"
+            android:layout_marginStart="461dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="160dp"
+            android:layout_marginBottom="222dp"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            tools:ignore="MissingConstraints" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle12"
+            android:visibility="invisible"
+            android:layout_width="24dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="422dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="239dp"
+            android:layout_marginBottom="257dp"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            tools:ignore="MissingConstraints" />
+
+        <com.example.eazilydone.Obstacle
+            android:id="@+id/obstacle13"
+            android:visibility="invisible"
+            android:layout_width="24dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="445dp"
+            android:layout_marginTop="106dp"
+            android:layout_marginEnd="230dp"
+            android:layout_marginBottom="255dp"
+            app:layout_constraintBottom_toBottomOf="@+id/grass"
+            app:layout_constraintEnd_toEndOf="@+id/grass"
+            app:layout_constraintStart_toStartOf="@+id/grass"
+            app:layout_constraintTop_toTopOf="@+id/grass"
+            tools:ignore="MissingConstraints" />
+
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cashBox"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/cashImage"
+            android:layout_width="48dp"
+            android:layout_height="47dp"
+            android:src="@drawable/cash"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/cashAmount"
+            android:layout_width="83dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="30dp"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:hint="1000"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/cashImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/arrowBox"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.963"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.963">
+
 
         <Button
             android:id="@+id/arrow_up"
             android:layout_width="16dp"
-            android:layout_height="15dp"
+            android:layout_height="16dp"
+            android:layout_gravity="center"
             android:background="@drawable/uparrow"
-            app:layout_constraintBottom_toTopOf="@id/person"
-            app:layout_constraintEnd_toEndOf="@id/person"
-            app:layout_constraintStart_toStartOf="@id/person"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            tools:ignore="ContentDescription" />
+
+        <View
+            android:layout_width="16dp"
+            android:layout_height="16dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/arrow_left"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/leftarrow"
+                tools:ignore="ContentDescription" />
+
+            <View
+                android:layout_width="64dp"
+                android:layout_height="16dp" />
+
+            <Button
+                android:id="@+id/arrow_right"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/rightarrow"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="16dp"
+            android:layout_height="16dp" />
 
         <Button
             android:id="@+id/arrow_down"
-            android:layout_width="17dp"
-            android:layout_height="14dp"
-            android:background="@drawable/downarrow"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/person"
-            app:layout_constraintStart_toStartOf="@id/person"
-            app:layout_constraintTop_toBottomOf="@id/person"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/arrow_left"
-            android:layout_width="18dp"
-            android:layout_height="15dp"
-            android:background="@drawable/leftarrow"
-            app:layout_constraintBottom_toBottomOf="@id/person"
-            app:layout_constraintEnd_toStartOf="@id/person"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/person"
-            app:layout_constraintVertical_bias="0.636" />
-
-        <Button
-            android:id="@+id/arrow_right"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:background="@drawable/rightarrow"
-            app:layout_constraintBottom_toBottomOf="@id/person"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/person"
-            app:layout_constraintTop_toTopOf="@id/person"
-            app:layout_constraintVertical_bias="0.619" />
-
-        <ImageView
-            android:id="@+id/building1"
-            android:layout_width="119dp"
-            android:layout_height="123dp"
-            android:src="@drawable/bank2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.543"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.056" />
-
-        <Button
-            android:id="@+id/Bankbutton"
-            android:layout_width="33dp"
-            android:layout_height="17dp"
-            android:background="@color/white"
-            android:text="Bank"
-            android:textColor="#757575"
-            app:layout_constraintBottom_toBottomOf="@+id/building1"
-            app:layout_constraintEnd_toEndOf="@+id/building1"
-            app:layout_constraintStart_toStartOf="@+id/building1"
-            app:layout_constraintTop_toTopOf="@+id/building1" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_gravity="center"
+            android:background="@drawable/downarrow"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

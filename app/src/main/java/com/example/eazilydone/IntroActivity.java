@@ -60,7 +60,7 @@ public class IntroActivity extends AppCompatActivity {
                     handler.postDelayed(this, delayBetweenSteps);
                 } else {
                     loadingText.setText("Loading complete!");
-                    Intent intent = new Intent(IntroActivity.this, MainActivity.class);
+                    Intent intent = new Intent(IntroActivity.this, SigninActivity.class);
                     startActivity(intent);
                     finish();
                 }
